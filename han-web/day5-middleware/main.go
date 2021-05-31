@@ -5,6 +5,10 @@ import (
 	"net/http"
 )
 
+func testB()  {
+
+}
+
 func main()  {
 	r := gee.New()
 	r.GET("/index", func(c *gee.Context) {
