@@ -5,10 +5,6 @@ import (
 	"net/http"
 )
 
-func testMerge() {
-	
-}
-
 func main()  {
 	r := gee.New()
 	r.GET("/index", func(c *gee.Context) {
