@@ -83,6 +83,7 @@ func (c *Context) Next() {
 	c.index++
 	s := len(c.handlers)
 	for ; c.index < s; c.index++ {
+		fmt.Printf("%T", c.handlers[c.index])
 		c.handlers[c.index](c)
 	}
 }
