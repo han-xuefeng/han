@@ -1,4 +1,4 @@
-module "day2-context"
+module example
 
 go 1.16
 

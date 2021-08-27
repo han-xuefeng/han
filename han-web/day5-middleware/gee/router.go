@@ -11,16 +11,21 @@ type router struct {
 }
 
 func newRouter() *router {
-	return &router{handlers: make(map[string]HandlerFunc),roots: make(map[string]*node)}
+	return &router{
+		roots: make(map[string]*node),
+		handlers: make(map[string]HandlerFunc),
+	}
 }
 
+// only one * is allowed
 func parsePattern(pattern string) []string {
 	vs := strings.Split(pattern, "/")
+
 	parts := make([]string, 0)
-	for _,part := range vs{
-		if part != "" {
-			parts = append(parts, part)
-			if parts[0] == "*" {
+	for _, item := range vs {
+		if item != "" {
+			parts = append(parts, item)
+			if item[0] == '*' {
 				break
 			}
 		}
@@ -28,9 +33,9 @@ func parsePattern(pattern string) []string {
 	return parts
 }
 
-func (r *router) addRoute(method string, pattern string, handler HandlerFunc){
+// 添加路由
+func (r *router) addRoute(method string, pattern string, handler HandlerFunc) {
 	parts := parsePattern(pattern)
-
 	key := method + "-" + pattern
 	_, ok := r.roots[method]
 	if !ok {
@@ -40,11 +45,12 @@ func (r *router) addRoute(method string, pattern string, handler HandlerFunc){
 	r.handlers[key] = handler
 }
 
-func (r *router) getRouter(method string, path string) (*node, map[string]string) {
+func (r *router) getRoute(method string, path string) (*node, map[string]string) {
 	searchParts := parsePattern(path)
 
 	params := make(map[string]string)
-	root, ok := r.roots[method]
+	root,ok := r.roots[method]
+
 	if !ok {
 		return nil, nil
 	}
@@ -63,20 +69,22 @@ func (r *router) getRouter(method string, path string) (*node, map[string]string
 			}
 		}
 		return n, params
-
 	}
-	return nil,nil
+
+	return nil, nil
 }
 
-func (r *router) handle(c *Context) {
-	n, params := r.getRouter(c.Method, c.Path)
+// 核心处理
+func (r *router)handle(c *Context)  {
+	n, params := r.getRoute(c.Method, c.Path)
+
 	if n != nil {
 		c.Params = params
 		key := c.Method + "-" + n.pattern
-		c.handlers = append(c.handlers, r.handlers[key])
+		c.handlers = append(c.handlers,r.handlers[key])
 	} else {
-		c.handlers = append(c.handlers, func(c *Context) {
-			c.String(http.StatusNotFound, "404 NOT FOUND: %s\n", c.Path)
+		c.handlers = append(c.handlers, func(ctx *Context) {
+			c.String(http.StatusNotFound, "404 not found:%s\n", c.Path)
 		})
 	}
 	c.Next()

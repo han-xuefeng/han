@@ -1,15 +1,17 @@
 package gee
 
 import (
-	"log"
+	"fmt"
 	"time"
 )
 
 func Logger() HandlerFunc {
 	return func(c *Context) {
+		// Start timer
 		t := time.Now()
+		// Process request
 		c.Next()
-		println("%%%%%%%%%%")
-		log.Printf("[%d] %s in %v", c.StatusCode, c.Req.RequestURI, time.Since(t))
+		// Calculate resolution time
+		fmt.Println("$$$$$$$$$$$", t)
 	}
 }

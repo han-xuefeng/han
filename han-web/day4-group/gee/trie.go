@@ -1,17 +1,19 @@
 package gee
 
-import "strings"
+import (
+	"strings"
+)
 
 type node struct {
-	pattern string
-	part string
-	children []*node
-	isWild bool
+	pattern string   //待匹配的路由 /p/:lang
+	part string      // 路由中的一部分 例如 :lang
+	children []*node // 子节点，例如 [doc, tutorial, intro]
+	isWild bool      // 是否精确匹配, part 含有 ： 或 * 时为true
 }
 
-// 第一个匹配成功的节点，用于插入
-func (n *node)matchChild(part string) *node {
-	for _, child := range n.children{
+// 第一个匹配成功的点  用于插入
+func (n *node) matchChild(part string) *node {
+	for _, child := range n.children {
 		if child.part == part || child.isWild {
 			return child
 		}
@@ -19,9 +21,10 @@ func (n *node)matchChild(part string) *node {
 	return nil
 }
 
+// 所有匹配成功的点 用于查找
 func (n *node) matchChildren(part string) []*node {
-	nodes := make([]*node,0)
-	for _, child := range n.children {
+	nodes := make([]*node, 0)
+	for _,child := range n.children{
 		if child.part == part || child.isWild {
 			nodes = append(nodes, child)
 		}
@@ -29,7 +32,7 @@ func (n *node) matchChildren(part string) []*node {
 	return nodes
 }
 
-func (n *node)insert(pattern string, parts []string, height int)  {
+func (n *node) insert(pattern string, parts []string, height int) {
 	if len(parts) == height {
 		n.pattern = pattern
 		return
@@ -38,14 +41,14 @@ func (n *node)insert(pattern string, parts []string, height int)  {
 	part := parts[height]
 	child := n.matchChild(part)
 	if child == nil {
-		child = &node{part: part,isWild: part[0] == ':' || part[0] == '*'}
+		child = &node{part: part, isWild: part[0] == ':' || part[0] == '*'}
 		n.children = append(n.children, child)
 	}
 	child.insert(pattern, parts, height + 1)
 }
 
-func (n *node)search(parts []string, height int) *node {
-	if len(parts) == height || strings.HasPrefix(n.part, "*"){
+func (n *node) search(parts []string, height int) *node {
+	if len(parts) == height || strings.HasPrefix(n.part, "*") {
 		if n.pattern == "" {
 			return nil
 		}
@@ -55,11 +58,12 @@ func (n *node)search(parts []string, height int) *node {
 	part := parts[height]
 	children := n.matchChildren(part)
 
-	for _, child := range children {
+	for _, child := range children{
 		result := child.search(parts, height + 1)
 		if result != nil {
 			return result
 		}
 	}
-	return nil
+
+	return nil;
 }

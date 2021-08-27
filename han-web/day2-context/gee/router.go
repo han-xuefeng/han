@@ -1,7 +1,6 @@
 package gee
 
 import (
-	"log"
 	"net/http"
 )
 
@@ -13,17 +12,18 @@ func newRouter() *router {
 	return &router{handlers: make(map[string]HandlerFunc)}
 }
 
-func (r *router) addRoute(method string, pattern string, handler HandlerFunc){
-	log.Printf("Route %4s - %s", method, pattern)
+// 添加路由
+func (r *router) addRouter(method string, pattern string, handler HandlerFunc) {
 	key := method + "-" + pattern
 	r.handlers[key] = handler
 }
 
-func (r *router) handle(c *Context) {
-	key := c.Method + "+" + c.Path
+// 核心处理
+func (r *router)handle(c *Context)  {
+	key := c.Method + "-" + c.Path
 	if handler, ok := r.handlers[key]; ok {
 		handler(c)
 	} else {
-		c.String(http.StatusNotFound, "404 not found: %s\n", c.Path)
+		c.String(http.StatusNotFound, "404 not found:%s\n", c.Path)
 	}
 }
