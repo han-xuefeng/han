@@ -2,44 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd10d600-4f07-4888-a7ca-07250fbbde12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/han.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day1-http-base/base1/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day1-http-base/base2/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day1-http-base/base3/gee/gee.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day1-http-base/base3/gee/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day1-http-base/base3/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day1-http-base/base3/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day2-context/gee/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day2-context/gee/gee.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day2-context/gee/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day2-context/gee/router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day2-context/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day2-context/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/gee/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/gee/gee.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/gee/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/gee/router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/gee/trie.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day3-router/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/gee/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/gee/gee.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/gee/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/gee/router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/gee/trie.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day4-group/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/gee/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/gee/gee.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/gee/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/gee/logger.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/gee/router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/gee/trie.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../han-web/day5-middleware/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +60,7 @@
       <recent name="F:\code\go\han\web" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build day5-middleware">
+  <component name="RunManager" selected="Go Build.go build day6-template">
     <configuration name="go build day3-router" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="web" />
       <working_directory value="$PROJECT_DIR$/day3-router" />
@@ -125,6 +88,15 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build day6-template" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="web" />
+      <working_directory value="$PROJECT_DIR$/day6-template" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/day6-template/main.go" />
+      <package value="day6-template" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="web" />
       <working_directory value="$PROJECT_DIR$/day4-group" />
@@ -133,24 +105,13 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestParsePattern in gee (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="web" />
-      <working_directory value="$PROJECT_DIR$/day3-router/gee" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="gee" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestParsePattern\E$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build day6-template" />
         <item itemvalue="Go Build.go build day5-middleware" />
         <item itemvalue="Go Build.go build day4-middleware" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build day3-router" />
-        <item itemvalue="Go Test.TestParsePattern in gee (1)" />
       </list>
     </recent_temporary>
   </component>
