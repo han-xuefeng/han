@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd10d600-4f07-4888-a7ca-07250fbbde12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dd10d600-4f07-4888-a7ca-07250fbbde12" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,16 +58,7 @@
       <recent name="F:\code\go\han\web" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build day6-template">
-    <configuration name="go build day3-router" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="web" />
-      <working_directory value="$PROJECT_DIR$/day3-router" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/day3-router/main.go" />
-      <package value="day3-router" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build day7-panic-recover">
     <configuration name="go build day4-middleware" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="web" />
       <working_directory value="$PROJECT_DIR$/day4-middleware" />
@@ -97,6 +86,15 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build day7-panic-recover" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="web" />
+      <working_directory value="$PROJECT_DIR$/day7-panic-recover" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/day7-panic-recover/main.go" />
+      <package value="day7-panic-recover" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="web" />
       <working_directory value="$PROJECT_DIR$/day4-group" />
@@ -107,11 +105,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build day7-panic-recover" />
         <item itemvalue="Go Build.go build day6-template" />
         <item itemvalue="Go Build.go build day5-middleware" />
         <item itemvalue="Go Build.go build day4-middleware" />
         <item itemvalue="Go Build.go build main.go" />
-        <item itemvalue="Go Build.go build day3-router" />
       </list>
     </recent_temporary>
   </component>
