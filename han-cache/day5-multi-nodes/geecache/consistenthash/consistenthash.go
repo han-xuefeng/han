@@ -40,7 +40,7 @@ func (m *Map) Add(keys ...string) {
 	sort.Ints(m.keys)
 }
 
-
+// 返回真实节点名
 func (m *Map) Get(key string) string {
 	if len(m.keys) == 0 {
 		return ""
