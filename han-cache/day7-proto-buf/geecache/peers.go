@@ -9,5 +9,5 @@ type PeerPicker interface {
 
 type PeerGetter interface {
 	// 从对应group中查询缓存值
-	Get(in *pb.Request, out *pb.Response) (error)
+	Get(in *pb.Request, out *pb.Response) error
 }

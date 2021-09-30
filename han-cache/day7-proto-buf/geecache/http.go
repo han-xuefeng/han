@@ -22,35 +22,6 @@ const (
 type httpGetter struct {
 	baseURL string
 }
-
-//从group中查找缓存
-func (h *httpGetter) Get(in *pb.Request, out *pb.Request) (error) {
-	u := fmt.Sprintf(
-		"%v%v/%v",
-		h.baseURL,
-		url.QueryEscape(in.Group),
-		url.QueryEscape(in.Key),
-	)
-	res, err := http.Get(u)
-	if err != nil {
-		return err
-	}
-	defer res.Body.Close()
-
-	if res.StatusCode != http.StatusOK {
-		return fmt.Errorf("server returned: %v", res.Status)
-	}
-
-	bytes, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return fmt.Errorf("reading response body: %v", err)
-	}
-	if err = proto.Unmarshal(bytes, out); err != nil {
-		return fmt.Errorf("decoding response body: %v", err)
-	}
-	return nil
-}
-
 // httpPool http服务端
 type HTTPPool struct {
 	self string
@@ -61,7 +32,7 @@ type HTTPPool struct {
 }
 
 func (p *HTTPPool) Get(in *pb.Request, out *pb.Response) error {
-	panic("implement me")
+	return nil
 }
 
 func NewHTTPPool (self string) *HTTPPool {
@@ -144,3 +115,32 @@ func (p *HTTPPool)ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/octet-stream")
 	w.Write(body)
 }
+
+//从group中查找缓存
+func (h *httpGetter) Get(in *pb.Request, out *pb.Response) error {
+	u := fmt.Sprintf(
+		"%v%v/%v",
+		h.baseURL,
+		url.QueryEscape(in.Group),
+		url.QueryEscape(in.Key),
+	)
+	res, err := http.Get(u)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+
+	if res.StatusCode != http.StatusOK {
+		return fmt.Errorf("server returned: %v", res.Status)
+	}
+
+	bytes, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return fmt.Errorf("reading response body: %v", err)
+	}
+	if err = proto.Unmarshal(bytes, out); err != nil {
+		return fmt.Errorf("decoding response body: %v", err)
+	}
+	return nil
+}
+var _ PeerGetter = (*httpGetter)(nil)
