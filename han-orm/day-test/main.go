@@ -10,10 +10,23 @@ type User struct {
 	Age  int
 }
 
-func main()  {
-	value := reflect.ValueOf(&User{})
-	fmt.Printf("%T,%V", value,value)
-	modelType := reflect.Indirect(value).Type()
+type myInt int
 
-	fmt.Println(modelType)
+func main()  {
+	userType := reflect.Indirect(reflect.ValueOf(&User{Name: "jack", Age: 20}))
+
+	a := "this is test"
+	var b myInt = 34
+	c := 25
+	fmt.Println(reflect.TypeOf(a))
+
+	fmt.Println(reflect.TypeOf(b))
+
+	//fmt.Println(reflect.Indirect(reflect.TypeOf(&c)))
+
+	cType := reflect.ValueOf(c)
+	fmt.Println(cType.Float())
+
+	fmt.Println(userType)
+
 }
