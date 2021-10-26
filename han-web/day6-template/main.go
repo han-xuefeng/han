@@ -20,7 +20,7 @@ func onlyForV2() gee.HandlerFunc {
 
 func main() {
 	r := gee.New()
-	r.Static("/static", "F:\\code\\go\\han\\han-web\\day6-template\\static")
+	r.Static("/static", "F:\\codec\\go\\han\\han-web\\day6-template\\static")
 	// 或相对路径 r.Static("/assets", "./static")
 	r.LoadHTMLGlob("templates/*")
 	r.GET("/", func(c *gee.Context) {
